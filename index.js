@@ -9,16 +9,19 @@ var entities = {
   REPLY: 3
 };
 
-// check functions to identify
-var checks = [is.retweet, is.mention, is.reply];
-
 /*
-  Identify an event
+  Determines is an event is an identifiable entity
 */
-var identify = function(event) {
-  var result = false;
-  _.each(checks, function(check){ result = result || check(event); });
-  return result;
+var is = {
+  retweet: function(event) {
+    return event && event.retweeted_status;
+  },
+  mention: function(event) {
+    return event && event.entities && event.entities.user_mentions.length && event.in_reply_to_user_id ? entities.MENTION : false;
+  },
+  reply: function(event) {
+    return event && event.in_reply_to_status_id ? entities.REPLY : false;
+  }
 };
 
 /*
@@ -33,19 +36,16 @@ var reply = {
   }
 };
 
+// check functions to identify
+var checks = [is.retweet, is.mention, is.reply];
+
 /*
-  Determines is an event is an identifiable entity
+  Identify an event
 */
-var is = {
-  retweet: function(event) {
-    return event && event.retweeted_status;
-  },
-  mention: function(event) {
-    return event && event.entities && event.entities.user_mentions.length && event.in_reply_to_user_id ? entities.MENTION : false;
-  },
-  reply: function(event) {
-    return event && event.in_reply_to_status_id ? entities.REPLY : false;
-  }
+var identify = function(event) {
+  var result = false;
+  _.each(checks, function(check){ result = result || check(event); });
+  return result;
 };
 
 /* --------------------------Exports--------------------------- */

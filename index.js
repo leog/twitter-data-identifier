@@ -51,6 +51,6 @@ var identify = function(event) {
 /* --------------------------Exports--------------------------- */
 
 exports.entities = entities;
-exports.indentify = identify;
+exports.identify = identify;
 exports.is = is;
 exports.reply = reply;

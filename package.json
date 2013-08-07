@@ -1,6 +1,6 @@
 {
   "name": "twitter-identifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "LeoG <leorou@gmail.com>",
   "description": "A tool to identify an event from Twitter stream API",
   "main": "index.js",

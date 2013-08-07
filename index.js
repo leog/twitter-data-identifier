@@ -14,7 +14,7 @@ var entities = {
 */
 var is = {
   retweet: function(event) {
-    return event && event.retweeted_status;
+    return event && event.retweeted_status ? entities.RETWEET : false;
   },
   mention: function(event) {
     return event && event.entities && event.entities.user_mentions.length && event.in_reply_to_user_id ? entities.MENTION : false;

@@ -14,7 +14,8 @@
     "stream",
     "identify",
     "mention",
-    "reply"
+    "reply",
+    "retweet"
   ],
   "dependencies" : {
     "underscore": "latest"

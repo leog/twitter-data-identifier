@@ -1,18 +1,20 @@
 {
-  "name": "twitter-identifier",
+  "name": "twitter-data-identifier",
   "version": "0.0.3",
   "author": "LeoG <leorou@gmail.com>",
   "description": "A tool to identify an event from Twitter stream API",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/leog/twitter-identifier"
+    "url": "https://github.com/leog/twitter-data-identifier"
   },
   "keywords": [
     "twitter",
-    "event",
+    "data",
     "stream",
-    "identify"
+    "identify",
+    "mention",
+    "reply"
   ],
   "dependencies" : {
     "underscore": "latest"

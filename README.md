@@ -1,4 +1,4 @@
-twitter-identifier
+twitter-data-identifier
 ==================
 
-A tool to identify an event from Twitter stream API.
+A tool to identify data from Twitter stream API.

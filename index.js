@@ -17,7 +17,7 @@ var is = {
     return event && event.retweeted_status ? entities.RETWEET : false;
   },
   mention: function(event) {
-    return event && event.entities && event.entities.user_mentions.length && event.in_reply_to_user_id ? entities.MENTION : false;
+    return event && event.entities && event.entities.user_mentions.length && !event.in_reply_to_status_id ? entities.MENTION : false;
   },
   reply: function(event) {
     return event && event.in_reply_to_status_id ? entities.REPLY : false;
@@ -28,11 +28,11 @@ var is = {
   Utils for replies only
 */
 var reply = {
-  to: function(event, screen_name) {
-    return is.reply() ? (screen_name ? screen_name === event.in_reply_to_screen_name : event.in_reply_to_screen_name) : false;
+  to: function(event, user_id) {
+    return is.reply() ? (user_id ? user_id === event.in_reply_to_user_id : event.in_reply_to_user_id) : false;
   },
-  from: function(event, screen_name) {
-    return is.reply() ? (screen_name ? screen_name === event.user.screen_name : event.user.screen_name) : false;
+  from: function(event, user_id) {
+    return is.reply() ? (user_id ? user_id === event.user.id : event.user.id) : false;
   }
 };
 

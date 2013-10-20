@@ -6,7 +6,8 @@ var _ = require('underscore');
 var entities = {
   RETWEET: 1,
   MENTION: 2,
-  REPLY: 3
+  REPLY: 3,
+  WARNING: 4
 };
 
 /*
@@ -21,6 +22,9 @@ var is = {
   },
   reply: function(event) {
     return event && event.in_reply_to_status_id ? entities.REPLY : false;
+  },
+  warning: function(event) {
+	return event && event.warning ? entities.WARNING : false;
   }
 };
 
@@ -37,7 +41,7 @@ var reply = {
 };
 
 // check functions to identify
-var checks = [is.retweet, is.mention, is.reply];
+var checks = [is.retweet, is.mention, is.reply, is.warning];
 
 /*
   Identify an event
